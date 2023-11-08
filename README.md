@@ -21,6 +21,9 @@ In the `code/` folder, find the implementation of our experiments. This includes
 
 To run the experiments, please first retrieve the two BLiMP datasets `animate_subject_trans.jsonl` and `animate_subject_passive.jsonl`, and place them in the `code/data/` folder.
 
-While in the `code/` folder, run every `.py` file in the `experiments/` folder starting with `eval`. Each such file takes in an argument `-m` to specify the name of the model to run it with. If the model needs to be split across multiple GPUs, set the `--multi_gpu` flag. If you want to reproduce the Dutch experiments, run the `peanuts` files in `experiments/` with the `--dutch` argument (only applicable for `peanuts` experiments). If you'd like to replicate the low-context atypical animacy results in the appendix, run `eval_low_context_atypical_animacy.py`, setting the `--split` argument to one of `[_large_pool, _matched, _cataphor]`.
+While in the `code/` folder, run every `.py` file in the `experiments/` folder starting with `eval`. Each such file takes in an argument `-m` to specify the name of the model to run it with. If the model needs to be split across multiple GPUs, set the `--multi_gpu` flag. Please note: 
+- The data for the Boudewyn et al experiments is not available at the moment (we manually formatted the data, and need permission to re-release), but we hope to add it soon.
+- If you want to reproduce the Dutch experiments, run the `peanuts` files in `experiments/` with the `--dutch` argument (only applicable for `peanuts` experiments).
+- If you'd like to replicate the low-context atypical animacy results in the appendix, run `eval_low_context_atypical_animacy.py`, setting the `--split` argument to one of `[_large_pool, _matched, _cataphor]`.
 
 Once you have done this, all results will be in the `results/` folder. To reproduce the plots in the paper, please run the `.py` files in `results`; `paper_plots_dutch.py` is only necessary if you want the Dutch plots. The PDF outputs will be in `results/paper-plots/`.
