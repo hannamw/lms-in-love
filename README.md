@@ -14,15 +14,14 @@ In the `datasets/` folder, find the datasets we created for our experiments. The
 
 The original Dutch stories from Nieuwland and van Berkum (2006) can be found on [ResearchGate](https://www.researchgate.net/publication/6946958_When_Peanuts_Fall_in_Love_N400_Evidence_for_the_Power_of_Discourse).
 
-To view the other two datasets used, please go to the sources of [BLiMP](https://github.com/alexwarstadt/blimp/tree/master/data) and [Boudewyn et al. (2016)](https://swaab.faculty.ucdavis.edu/stimuli/)
+To view the other two datasets used, please go to the sources of [BLiMP](https://github.com/alexwarstadt/blimp/tree/master/data) and [Boudewyn et al. (2016)](https://swaab.faculty.ucdavis.edu/stimuli/). 
 
 ## Code
 In the `code/` folder, find the implementation of our experiments. This includes an `environment.yml` file that can be used to install a conda environment that is compatible with this codebase. Note that as our experiments include LLaMA, you must request the (private) weights of this model from Meta. You should then specify the path to these weights in the `LLAMA_CHECKPOINT_PATH` environment variable.
 
-To run the experiments, please first retrieve the two BLiMP datasets `animate_subject_trans.jsonl` and `animate_subject_passive.jsonl`, and place them in the `code/data/` folder.
+To run the experiments, please first retrieve the two BLiMP datasets `animate_subject_trans.jsonl` and `animate_subject_passive.jsonl`, and place them in the `code/data/` folder. A manually-edited machine readable copy of the Boudewyn et al. (2016) stimuli is already included in the `code/data/` folder (re-released with the author's permission).
 
 While in the `code/` folder, run every `.py` file in the `experiments/` folder starting with `eval`. Each such file takes in an argument `-m` to specify the name of the model to run it with. If the model needs to be split across multiple GPUs, set the `--multi_gpu` flag. Please note: 
-- The data for the Boudewyn et al experiments is not available at the moment (we manually formatted the data, and need permission to re-release), but we hope to add it soon.
 - If you want to reproduce the Dutch experiments, run the `peanuts` files in `experiments/` with the `--dutch` argument (only applicable for `peanuts` experiments).
 - If you'd like to replicate the low-context atypical animacy results in the appendix, run `eval_low_context_atypical_animacy.py`, setting the `--split` argument to one of `[_large_pool, _matched, _cataphor]`.
 
